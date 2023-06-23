@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etch-a-Sketch</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+<main>
+  <h1>Etch-a-Sketch</h1>
+    <div class="controls">
+        <div class="range-slider">
+            <input type="range" id="grid-size"  min="5" max="95"  value="25" step="5" title="How many columns do you want"><span id="display-size" class="size"></span>
+        </div>
+        <!--
+        <button type="button" num-cols="10" num-rows="10">10 x 10</button>
+        <button type="button" num-cols="23" num-rows="23" class="active">23 x 23</button>
+        <button type="button" num-cols="30" num-rows="20">30 x 20</button>
+        -->    
+    <input type="color" id="set-color" value="#FF0000" title="Pick a color">
+    <button type="button" id="erase" title="Erase">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-eraser" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M19 20h-10.5l-4.21 -4.3a1 1 0 0 1 0 -1.41l10 -10a1 1 0 0 1 1.41 0l5 5a1 1 0 0 1 0 1.41l-9.2 9.3"></path>
+            <path d="M18 13.3l-6.3 -6.3"></path>
+        </svg>
+        </button>
+        <button type="reset" id="reset" title="Reset grid">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-reload" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+    <path d="M19.933 13.041a8 8 0 1 1 -9.925 -8.788c3.899 -1 7.935 1.007 9.425 4.747"></path>
+    <path d="M20 4v5h-5"></path>
+    </svg>
+        
+        </button>
+    </div>
+  
+  <div class="grid-container" id="gridContainer" grid-cols="20" grid-rows="20"></div>
+</main>    
+</body>
+</html>

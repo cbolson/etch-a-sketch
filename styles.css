@@ -1,0 +1,119 @@
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root{
+/*   --body-bg: linear-gradient(45deg, #6D8343, #6E3562); */
+  --body-bg: #6E3562;
+  --body-clr: #FFF;
+  
+  --grid-width: 500px; /* use fit-content if you have specific cell width */
+  --cell-width: 1fr; /* if set to px you need to change the --grid-width to use fit-content */
+  --cel-gap: 1px;
+  --cell-bg: #FFF; 
+  --cell-lines: var(--body-bg);
+  --cell-bg-active: red;
+  
+  --controls-border: white;
+  --controls-clr: #000;
+  --controls-bg: #DDD;
+  --controls-bg-active: #A3C14A;
+  
+}
+body{
+  font-family: system-ui, arial;
+  height: 100vh;
+  font-size: 1rem;
+  display: flex;
+  padding-inline: 1rem;
+  justify-content: center;
+  background: var(--body-bg);
+  color: var(--body-clr);
+}
+main{
+  max-width: var(--grid-width);
+  width: 100%;
+  display: flex;
+flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-block: 2rem;
+}
+.controls{
+   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: .5rem;
+  width: 100%;
+  margin-block: 0 1rem;
+}
+
+.range-slider,
+input,
+button{
+  flex:1;
+  height: 40px;
+  background: var(--controls-bg);
+  color: var(--controls-clr);
+  border: 1px solid var(--controls-border);
+  border-radius: 5px;
+  width: fit-content;
+  min-width: 60px;
+  cursor: pointer;
+  padding: .25rem .5rem;
+}
+input[type=color]{
+  background: red;
+  
+}
+.range-slider{
+  flex: 2;
+  border-radius: 5px;
+padding: 0 1rem;
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+}
+.range-slider input{
+  flex: 2;
+}
+.range-slider .size{
+  
+}
+.controls button:hover,
+.controls button.active{
+  background: var(--controls-bg-active);
+  color: #FFF;
+}
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto,var(--cell-width));
+  grid-template-rows: repeat(auto,var(--cell-width));
+  gap: var(--cel-gap);
+  padding: var(--cel-gap);
+  width: 100%;
+  background: var(--cell-lines);
+  border-radius: 3px; /* just take the edge off the corners */
+  overflow: hidden;
+}
+
+.grid-item {
+  background: var(--cell-bg);
+  aspect-ratio: 1;
+  transition: background-color 150ms ease-in;
+  font-size: .6rem;
+  display: grid;
+  place-items: center;
+/*   outline: 1px dashed red; */
+}
+.grid-item.active{
+   background: var(--cell-bg-active);
+}
+@media (min-width: 400px){
+  .controls button#reset{
+    margin-left: auto;
+  }
+}
